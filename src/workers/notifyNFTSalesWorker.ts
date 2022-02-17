@@ -76,9 +76,10 @@ export default function newWorker(
           }
 
           // Don't notify purchases by the project's own account
-          if (nftSale.buyer === project.mintAddress) {
-            return;
-          }
+          // But in this case... we do want to show them bc of high tide
+          // if (nftSale.buyer === project.mintAddress) {
+          //   return;
+          // }
           if (channel) {
             try {
               await notifyDiscordSale(discordClient, channel, nftSale);
